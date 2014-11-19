@@ -240,7 +240,7 @@ describe('Intention', function () {
     it('should make a new axes object with the current context for id1 set to foo', function () {
       var inCtx = 'foo',
         // TODO: change the order of these args
-        newAxes = intent._contextualize('id1', inCtx, axes);
+        newAxes = intent.contextualize('id1', inCtx, axes);
       expect(newAxes.id1.current).to.equal('foo');
     });
   });

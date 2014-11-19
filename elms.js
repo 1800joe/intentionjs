@@ -68,7 +68,7 @@
           axisName = specMatch[0];
           if (specMatch[0] === undefined || specMatch[0] === '') {
             // if there is no axis find one:
-            specMatch[0] = this._assocAxis(specMatch[1], axes);
+            specMatch[0] = this.assocAxis(specMatch[1], axes);
             if (specMatch[0] === false) {
               // there is no context, so get outa here
               return;  // skipt the attr
@@ -154,11 +154,6 @@
       return elm;
     },
 
-
-
-
-
-
     _removeClasses: function (specs, axes) {
       var toRemove = [];
       _.each(axes.__keys__, function (key) {
@@ -231,6 +226,9 @@
         }
       }, this));
       return this;
+    },
+    _contextConfig: function (specs, axes) {
+      return this._resolveSpecs(this.currentContexts(axes), specs, axes);
     },
     remove: function (elms) {
       // is expecting a jquery object
